@@ -21,8 +21,7 @@
     "typings/main.d.ts"
   ],
   "files": [
-    "client/app.ts",
-    "typings/index.d.ts"
+    "client/app.ts"
   ],
   "atom": {
     "rewriteTsconfig": true
