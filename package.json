@@ -34,5 +34,10 @@
   "private": true,
   "scripts": {
     "start": "meteor run"
+  },
+  "devDependencies": {
+    "codelyzer": "0.0.19",
+    "tslint": "^3.10.2",
+    "typescript": "^1.8.10"
   }
 }
