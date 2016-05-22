@@ -15,35 +15,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var ionic_angular_1 = require('ionic-angular');
 var angular2_meteor_1 = require('angular2-meteor');
-// import {AccountsService} from 'meteor-accounts'
+var getting_started_1 = require('../getting-started/getting-started');
 var LoginPage = (function (_super) {
     __extends(LoginPage, _super);
-    function LoginPage() {
+    function LoginPage(nav) {
+        this.nav = nav;
         console.log('this is login page');
-        console.log(Meteor.users.find().fetch());
+        _super.call(this);
+        // console.log(Meteor.users.find().fetch())
     }
     LoginPage.prototype.login = function (form) {
-        // Meteor.loginWithPassword(form.value.username, form.value.password).then(function(response){
-        //   console.log('Login Success' + response )
-        // }, function(_error){
-        //   console.log('Login Error')
-        // })
+        var _this = this;
         Meteor.loginWithPassword(form.value.username, form.value.password, function (_error) {
             if (_error !== undefined) {
                 console.log('Login error');
             }
             else {
                 console.log('login success');
+                // console.log(this)
+                _this.nav.push(getting_started_1.GettingStartedPage);
             }
         });
-        // this.accounts.login(form.value.username, form.value.password).then(() => alert ('logged in'))
+        // this.nav.push(GettingStartedPage)
     };
     LoginPage = __decorate([
         ionic_angular_1.Page({
             templateUrl: 'imports/ui/pages/login/login.html',
             styleUrls: [require('./login.scss')]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [ionic_angular_1.NavController])
     ], LoginPage);
     return LoginPage;
 }(angular2_meteor_1.MeteorComponent));

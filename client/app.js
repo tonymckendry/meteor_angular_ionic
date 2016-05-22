@@ -1,4 +1,9 @@
 "use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -12,8 +17,11 @@ var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
 var getting_started_1 = require('../imports/ui/pages/getting-started/getting-started');
 var login_1 = require('../imports/ui/pages/login/login');
-var TheApp = (function () {
+var angular2_meteor_1 = require('angular2-meteor');
+var TheApp = (function (_super) {
+    __extends(TheApp, _super);
     function TheApp(events, platform, menu) {
+        _super.call(this);
         this.events = events;
         this.menu = menu;
         platform.ready().then(function () {
@@ -48,16 +56,17 @@ var TheApp = (function () {
         // let nav = this.app.getComponent('nav');
         this.nav.setRoot(page.component);
     };
+    __decorate([
+        core_1.ViewChild(ionic_angular_1.Nav), 
+        __metadata('design:type', ionic_angular_1.Nav)
+    ], TheApp.prototype, "nav", void 0);
     TheApp = __decorate([
         ionic_angular_1.App({
             templateUrl: 'imports/ui/layouts/main.html',
             config: {},
-            queries: {
-                nav: new core_1.ViewChild('content')
-            }
         }), 
         __metadata('design:paramtypes', [Object, Object, Object])
     ], TheApp);
     return TheApp;
-}());
+}(angular2_meteor_1.MeteorComponent));
 //# sourceMappingURL=app.js.map

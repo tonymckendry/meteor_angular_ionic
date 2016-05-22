@@ -1,22 +1,23 @@
 import {ViewChild} from '@angular/core';
-import {App, Events, Platform, MenuController} from 'ionic-angular';
+import {App, Events, Platform, MenuController, Nav} from 'ionic-angular';
 import {GettingStartedPage} from '../imports/ui/pages/getting-started/getting-started';
 import {LoginPage} from '../imports/ui/pages/login/login';
+import {MeteorComponent} from 'angular2-meteor'
 
 @App({
   templateUrl: 'imports/ui/layouts/main.html',
   config: {}, // http://ionicframework.com/docs/v2/api/config/Config/
-  queries: {
-    nav: new ViewChild('content')
-  }
+
 })
-class TheApp {
+class TheApp extends MeteorComponent{
+  @ViewChild(Nav) nav: Nav;
   static get parameters() {
     return [
       [Events], [Platform], [MenuController]
     ]
   }
   constructor(events, platform, menu) {
+    super();
     this.events = events;
     this.menu = menu;
 
