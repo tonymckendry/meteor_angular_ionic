@@ -23,13 +23,15 @@ var LoginPage = (function (_super) {
         this.nav = nav;
         console.log('this is login page');
         _super.call(this);
+        this.loginError = false;
         // console.log(Meteor.users.find().fetch())
     }
     LoginPage.prototype.login = function (form) {
         var _this = this;
         Meteor.loginWithPassword(form.value.username, form.value.password, function (_error) {
             if (_error !== undefined) {
-                console.log('Login error');
+                _this.loginError = true;
+                console.log('Login error - loginError is: ' + _this.loginError);
             }
             else {
                 console.log('login success');

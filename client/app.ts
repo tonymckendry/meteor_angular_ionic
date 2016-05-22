@@ -1,6 +1,6 @@
 import {App, Events, Platform, MenuController, Nav} from 'ionic-angular';
 import {MeteorComponent} from 'angular2-meteor'
-import {ViewChild} from '@angular/core';
+import {ViewChild} from '@angular/core'; 
 
 import {GettingStartedPage} from '../imports/ui/pages/getting-started/getting-started';
 import {LoginPage} from '../imports/ui/pages/login/login';
