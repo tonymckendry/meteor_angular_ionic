@@ -21,6 +21,8 @@ insecure                # Allow all DB writes from clients (for prototyping)
 angular2-compilers
 barbatus:angular2-runtime
 fourseven:scss
+aldeed:collection2
+aldeed:simple-schema
 accounts-password
 barbatus:ng2-meteor-accounts
 pagebakers:ionicons

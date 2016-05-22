@@ -1,4 +1,4 @@
-
+<!--
 <ion-navbar *navbar>
   <button menuToggle>
     <ion-icon name="menu"></ion-icon>
@@ -13,8 +13,16 @@
   <p>
      Get it started - so can I change this? Does this live update?
   </p>
+  <div *ngIf="store.loggedIn === false">
+    <h1>oh yeah</h1>
+  </div>
+  <!-- <input id="txt" type="text" [ngFormControl]="inputtedText"> -->
   <p>
     <button primary menuToggle>Toggle Menu</button>
+    <ion-item>
+      <ion-label stacked>Some label</ion-label>
+      <ion-input id="usefulId" type="text" [ngFormControl]="inputtedText"></ion-input>
+    </ion-item>
   </p>
 
 </ion-content>

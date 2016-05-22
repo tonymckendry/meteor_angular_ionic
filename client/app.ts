@@ -1,23 +1,30 @@
-import {App, Events, Platform, MenuController, Nav} from 'ionic-angular';
-import {MeteorComponent} from 'angular2-meteor'
-import {ViewChild} from '@angular/core'; 
+/// <reference path="app.d.ts" />
 
+import {App, Events, Platform, MenuController, Nav} from 'ionic-angular';
+import {ViewChild} from '@angular/core'; 
+import {autorun} from 'mobx';
 import {GettingStartedPage} from '../imports/ui/pages/getting-started/getting-started';
 import {LoginPage} from '../imports/ui/pages/login/login';
 import {SchedulePage} from '../imports/ui/pages/schedule/schedule'
+import AppState from './app-state';
 
 @App({
   templateUrl: 'imports/ui/layouts/main.html',
   config: {}, // http://ionicframework.com/docs/v2/api/config/Config/
-
+  // queries: {
+  //   nav: new ViewChild('content')
+  // }
 })
-class TheApp extends MeteorComponent{
+class TheApp implements AfterViewInit {
   @ViewChild(Nav) nav: Nav;
+  store = AppState;
+
   static get parameters() {
     return [
       [Events], [Platform], [MenuController]
     ]
   }
+
   constructor(events, platform, menu) {
     super();
     this.events = events;
@@ -26,6 +33,9 @@ class TheApp extends MeteorComponent{
 
     platform.ready().then(() => {
       console.log("yeah boy!");
+      console.log(this.store.loggedIn);
+      // this.store.loggedIn = true;
+      // console.log(this.store.loggedIn);
     })
     // this.app = app;
     // this.platform = platform;
@@ -38,10 +48,28 @@ class TheApp extends MeteorComponent{
       { title: 'Schedule', component: SchedulePage }
     ];
     //
-    // this.rootPage = GettingStartedPage;
+    this.root = LoginPage;
     // this.menu.enable(true, "loggedInMenu");
     // this.nav.setRoot(GettingStartedPage);
-    this.root = LoginPage;
+
+
+
+
+  }
+
+  ngAfterViewInit() {
+    console.log("The component view has been initialised");
+    autorun(() => {
+      console.log("autorunning in 'TheApp'");
+      if (this.store.loggedIn === true) {
+        this.nav.setRoot(GettingStartedPage);
+        console.log(this);
+      } else {
+        this.nav.setRoot(ListPage);
+        console.log("setting to the listpage")
+      }
+    })
+
   }
 
   openPage(page) {
