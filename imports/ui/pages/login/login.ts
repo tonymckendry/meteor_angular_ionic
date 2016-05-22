@@ -23,7 +23,7 @@ export class LoginPage extends MeteorComponent{
         console.log('Login error')
       }else{
         console.log('login success')
-        this.nav.push(SchedulePage)
+        this.nav.setRoot(SchedulePage)
       }
     })
   }

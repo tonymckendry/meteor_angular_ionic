@@ -34,7 +34,6 @@ var TheApp = (function (_super) {
         // // used for an example of ngFor and navigation
         this.appPages = [
             { title: 'Getting Started', component: getting_started_1.GettingStartedPage },
-            { title: 'Login', component: login_1.LoginPage },
             { title: 'Schedule', component: schedule_1.SchedulePage }
         ];
         //

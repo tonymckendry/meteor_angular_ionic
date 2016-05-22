@@ -35,7 +35,6 @@ class TheApp extends MeteorComponent{
     // // used for an example of ngFor and navigation
     this.appPages = [
       { title: 'Getting Started', component: GettingStartedPage },
-      { title: 'Login', component: LoginPage },
       { title: 'Schedule', component: SchedulePage }
     ];
     //

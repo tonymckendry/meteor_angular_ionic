@@ -33,7 +33,7 @@ var LoginPage = (function (_super) {
             }
             else {
                 console.log('login success');
-                _this.nav.push(schedule_1.SchedulePage);
+                _this.nav.setRoot(schedule_1.SchedulePage);
             }
         });
     };
