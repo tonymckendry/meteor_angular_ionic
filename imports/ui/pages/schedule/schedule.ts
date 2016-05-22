@@ -2,6 +2,7 @@ import {Page, NavController} from 'ionic-angular';
 import {MeteorComponent} from 'angular2-meteor'
 
 import {LoginPage} from '../login/login'
+import AppState from '../../../../client/app-state';
 
 @Page({
   templateUrl: 'imports/ui/pages/schedule/schedule.html',
@@ -9,6 +10,8 @@ import {LoginPage} from '../login/login'
   // template: '<ion-content><h1>hello</h1></ion-content>'
 })
 export class SchedulePage extends MeteorComponent {
+  store = AppState;
+
   constructor(nav:NavController) {
     super()
     this.nav = nav;
@@ -44,6 +47,11 @@ export class SchedulePage extends MeteorComponent {
   }
 
   logout(){
-    Meteor.logout((_response) => this.nav.setRoot(LoginPage))
+    Meteor.logout((_response) => {
+      // this.nav.setRoot(LoginPage))
+      this.store.loggedIn = false;
+      console.log(_response);
+    });
+
   }
 }

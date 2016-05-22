@@ -2,8 +2,8 @@
     <div class='logoDiv'>
       <img src="img/zuuslogo.svg" alt="">
     </div>
-    <div class='errorDiv' *ngIf='loginError'>
-      Incorrect Username/Password
+    <div *ngIf="store.loginError">
+      <ion-label danger>Incorrect Username/Password</ion-label>
     </div>
     <form #f='ngForm' (ngSubmit)='login(f.form)'>
       <ion-list>
