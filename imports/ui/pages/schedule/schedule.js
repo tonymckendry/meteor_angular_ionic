@@ -12,7 +12,32 @@ var ionic_angular_1 = require('ionic-angular');
 var SchedulePage = (function () {
     function SchedulePage() {
         console.log('this is logging on the schedule component');
+        this.searchQuery = '';
+        this.initializeItems();
     }
+    SchedulePage.prototype.initializeItems = function () {
+        this.items = [
+            'Amsterdam',
+            'Bogota',
+            'Dude',
+            'this is fake data',
+            'need to put in faker.js',
+            'next is infinite scroll'
+        ];
+    };
+    SchedulePage.prototype.getItems = function (searchbar) {
+        this.initializeItems();
+        var q = searchbar.value;
+        if (q.trim() == '') {
+            return;
+        }
+        this.items = this.items.filter(function (v) {
+            if (v.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+                return true;
+            }
+            return false;
+        });
+    };
     SchedulePage = __decorate([
         ionic_angular_1.Page({
             templateUrl: 'imports/ui/pages/schedule/schedule.html',
