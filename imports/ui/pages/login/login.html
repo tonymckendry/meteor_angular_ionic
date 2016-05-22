@@ -3,7 +3,7 @@
       <img src="img/zuuslogo.svg" alt="">
     </div>
     <div *ngIf="store.loginError">
-      <ion-label danger>Oh no</ion-label>
+      <ion-label danger>Incorrect Username/Password</ion-label>
     </div>
     <form #f='ngForm' (ngSubmit)='login(f.form)'>
       <ion-list>

@@ -1,7 +1,7 @@
 /// <reference path="app.d.ts" />
 
 import {App, Events, Platform, MenuController, Nav} from 'ionic-angular';
-import {ViewChild} from '@angular/core';
+import {ViewChild} from '@angular/core'; 
 import {autorun} from 'mobx';
 import {GettingStartedPage} from '../imports/ui/pages/getting-started/getting-started';
 import {LoginPage} from '../imports/ui/pages/login/login';
