@@ -1,4 +1,4 @@
-if(Meteor.users.find().count() == 1){
+if(Meteor.users.find().count() <= 1){
   Accounts.createUser({
     username: 'bob',
       password: 'bob',
