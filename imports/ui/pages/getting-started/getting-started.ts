@@ -9,6 +9,7 @@ import {autorun} from 'mobx';
 
 @Page({
   templateUrl: 'imports/ui/pages/getting-started/getting-started.html',
+  styleUrls: [require('./getting-started.scss')]
   // template: '<ion-content><h1>hello</h1></ion-content>'
   // directives: [AppState]
 })

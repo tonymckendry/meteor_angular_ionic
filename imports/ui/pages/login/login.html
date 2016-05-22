@@ -1,0 +1,30 @@
+  <ion-content padding class='login'>
+    <div class='logoDiv'>
+      <img src="img/zuuslogo.svg" alt="">
+    </div>
+    <form #f='ngForm' (ngSubmit)='login(f.form)'>
+      <ion-list>
+        <ion-item>
+          <ion-label floating>Username</ion-label>
+          <ion-input
+              id='username'
+              type="text"
+              ngControl='username'
+              #username='ngForm'>
+              </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input
+            type="password"
+            id='password'
+            ngControl='password'
+            #password='ngForm'>
+            </ion-input>
+        </ion-item>
+        <ion-item>
+          <button full large type='submit'>Login</button>
+        </ion-item>
+      </ion-list>
+    </form>
+  </ion-content>

@@ -1,14 +1,12 @@
 /// <reference path="app.d.ts" />
 
-import {ViewChild} from '@angular/core';
 import {App, Events, Platform, MenuController, Nav} from 'ionic-angular';
+import {ViewChild} from '@angular/core';
 import {autorun} from 'mobx';
 import {GettingStartedPage} from '../imports/ui/pages/getting-started/getting-started';
-import {ListPage} from '../imports/ui/pages/list/list';
+import {LoginPage} from '../imports/ui/pages/login/login';
+import {SchedulePage} from '../imports/ui/pages/schedule/schedule'
 import AppState from './app-state';
-
-
-// scope.digest
 
 @App({
   templateUrl: 'imports/ui/layouts/main.html',
@@ -28,6 +26,7 @@ class TheApp implements AfterViewInit {
   }
 
   constructor(events, platform, menu) {
+    super();
     this.events = events;
     this.menu = menu;
 
@@ -46,10 +45,10 @@ class TheApp implements AfterViewInit {
     // // used for an example of ngFor and navigation
     this.appPages = [
       { title: 'Getting Started', component: GettingStartedPage },
-      // { title: 'List', component: ListPage }
+      { title: 'Schedule', component: SchedulePage }
     ];
     //
-    this.root = GettingStartedPage;
+    this.root = LoginPage;
     // this.menu.enable(true, "loggedInMenu");
     // this.nav.setRoot(GettingStartedPage);
 
@@ -70,6 +69,7 @@ class TheApp implements AfterViewInit {
         console.log("setting to the listpage")
       }
     })
+
   }
 
   openPage(page) {

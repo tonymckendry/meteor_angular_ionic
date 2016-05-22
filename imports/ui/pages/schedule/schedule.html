@@ -1,0 +1,23 @@
+<ion-navbar *navbar primary>
+  <button menuToggle>
+    <ion-icon name='logo-apple'></ion-icon>
+  </button>
+  <ion-buttons end>
+    <button light (click)='logout()'>
+      Logout
+    </button>
+  </ion-buttons>
+  <ion-title>Schedule</ion-title>
+</ion-navbar>
+
+
+<ion-content padding class="schedule">
+
+  <h3>Schedule</h3>
+  <ion-searchbar [(ngModel)]="searchQuery" (input)="getItems($event)"></ion-searchbar>
+<ion-list>
+  <ion-item *ngFor="#item of items">
+    {{ item }}
+  </ion-item>
+</ion-list>
+</ion-content>
