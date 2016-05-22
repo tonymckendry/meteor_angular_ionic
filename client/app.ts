@@ -1,20 +1,32 @@
+/// <reference path="app.d.ts" />
+
 import {ViewChild} from '@angular/core';
-import {App, Events, Platform, MenuController} from 'ionic-angular';
+import {App, Events, Platform, MenuController, Nav} from 'ionic-angular';
+import {autorun} from 'mobx';
 import {GettingStartedPage} from '../imports/ui/pages/getting-started/getting-started';
+import {ListPage} from '../imports/ui/pages/list/list';
+import AppState from './app-state';
+
+
+// scope.digest
 
 @App({
   templateUrl: 'imports/ui/layouts/main.html',
   config: {}, // http://ionicframework.com/docs/v2/api/config/Config/
-  queries: {
-    nav: new ViewChild('content')
-  }
+  // queries: {
+  //   nav: new ViewChild('content')
+  // }
 })
-class TheApp {
+class TheApp implements AfterViewInit {
+  @ViewChild(Nav) nav: Nav;
+  store = AppState;
+
   static get parameters() {
     return [
       [Events], [Platform], [MenuController]
     ]
   }
+
   constructor(events, platform, menu) {
     this.events = events;
     this.menu = menu;
@@ -22,6 +34,9 @@ class TheApp {
 
     platform.ready().then(() => {
       console.log("yeah boy!");
+      console.log(this.store.loggedIn);
+      // this.store.loggedIn = true;
+      // console.log(this.store.loggedIn);
     })
     // this.app = app;
     // this.platform = platform;
@@ -34,10 +49,27 @@ class TheApp {
       // { title: 'List', component: ListPage }
     ];
     //
-    // this.rootPage = GettingStartedPage;
+    this.root = GettingStartedPage;
     // this.menu.enable(true, "loggedInMenu");
     // this.nav.setRoot(GettingStartedPage);
-    this.root = GettingStartedPage;
+
+
+
+
+  }
+
+  ngAfterViewInit() {
+    console.log("The component view has been initialised");
+    autorun(() => {
+      console.log("autorunning in 'TheApp'");
+      if (this.store.loggedIn === true) {
+        this.nav.setRoot(GettingStartedPage);
+        console.log(this);
+      } else {
+        this.nav.setRoot(ListPage);
+        console.log("setting to the listpage")
+      }
+    })
   }
 
   openPage(page) {

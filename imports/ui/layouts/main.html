@@ -73,4 +73,19 @@
 
 
 <!-- main navigation -->
-<ion-nav [root]="rootPage" #content swipe-back-enabled="false"></ion-nav>
+
+<!-- <ion-toolbar primary>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>Schedule</ion-title>
+</ion-toolbar> -->
+<ion-navbar *navbar>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>Getting Started</ion-title>
+</ion-navbar>
+<ion-content>
+<ion-nav [root]="root" #content swipe-back-enabled="false"></ion-nav>
+</ion-content>

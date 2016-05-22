@@ -21,8 +21,7 @@
     "typings/main.d.ts"
   ],
   "files": [
-    "client/app.ts",
-    "typings/app.d.ts",
+    "client/app.d.ts",
     "typings/globals/meteor/index.d.ts",
     "typings/index.d.ts",
     "typings/modules/es6-promise/index.d.ts"
