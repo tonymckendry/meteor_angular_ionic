@@ -22,10 +22,13 @@
   ],
   "files": [
     "client/app.ts",
-    "typings/app.d.ts",
-    "typings/globals/meteor/index.d.ts",
-    "typings/index.d.ts",
-    "typings/modules/es6-promise/index.d.ts"
+    "typings/angular2/angular2.d.ts",
+    "typings/angular2/common.d.ts",
+    "typings/angular2/core.d.ts",
+    "typings/angular2/http.d.ts",
+    "typings/angular2/platform/browser.d.ts",
+    "typings/angular2/router.d.ts",
+    "typings/ng2-meteor-accounts/ng2-meteor-accounts.d.ts"
   ],
   "atom": {
     "rewriteTsconfig": true

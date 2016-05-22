@@ -1,6 +1,7 @@
 import {ViewChild} from '@angular/core';
 import {App, Events, Platform, MenuController} from 'ionic-angular';
 import {GettingStartedPage} from '../imports/ui/pages/getting-started/getting-started';
+import {LoginPage} from '../imports/ui/pages/login/login';
 
 @App({
   templateUrl: 'imports/ui/layouts/main.html',
@@ -31,13 +32,13 @@ class TheApp {
     // // used for an example of ngFor and navigation
     this.appPages = [
       { title: 'Getting Started', component: GettingStartedPage },
-      // { title: 'List', component: ListPage }
+      { title: 'Login', component: LoginPage }
     ];
     //
     // this.rootPage = GettingStartedPage;
     // this.menu.enable(true, "loggedInMenu");
     // this.nav.setRoot(GettingStartedPage);
-    this.root = GettingStartedPage;
+    this.root = LoginPage;
   }
 
   openPage(page) {
