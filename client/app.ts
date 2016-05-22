@@ -1,8 +1,10 @@
-import {ViewChild} from '@angular/core';
 import {App, Events, Platform, MenuController, Nav} from 'ionic-angular';
+import {MeteorComponent} from 'angular2-meteor'
+import {ViewChild} from '@angular/core';
+
 import {GettingStartedPage} from '../imports/ui/pages/getting-started/getting-started';
 import {LoginPage} from '../imports/ui/pages/login/login';
-import {MeteorComponent} from 'angular2-meteor'
+import {SchedulePage} from '../imports/ui/pages/schedule/schedule'
 
 @App({
   templateUrl: 'imports/ui/layouts/main.html',
@@ -33,7 +35,8 @@ class TheApp extends MeteorComponent{
     // // used for an example of ngFor and navigation
     this.appPages = [
       { title: 'Getting Started', component: GettingStartedPage },
-      { title: 'Login', component: LoginPage }
+      { title: 'Login', component: LoginPage },
+      { title: 'Schedule', component: SchedulePage }
     ];
     //
     // this.rootPage = GettingStartedPage;

@@ -13,11 +13,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
+var angular2_meteor_1 = require('angular2-meteor');
+var core_1 = require('@angular/core');
 var getting_started_1 = require('../imports/ui/pages/getting-started/getting-started');
 var login_1 = require('../imports/ui/pages/login/login');
-var angular2_meteor_1 = require('angular2-meteor');
+var schedule_1 = require('../imports/ui/pages/schedule/schedule');
 var TheApp = (function (_super) {
     __extends(TheApp, _super);
     function TheApp(events, platform, menu) {
@@ -33,7 +34,8 @@ var TheApp = (function (_super) {
         // // used for an example of ngFor and navigation
         this.appPages = [
             { title: 'Getting Started', component: getting_started_1.GettingStartedPage },
-            { title: 'Login', component: login_1.LoginPage }
+            { title: 'Login', component: login_1.LoginPage },
+            { title: 'Schedule', component: schedule_1.SchedulePage }
         ];
         //
         // this.rootPage = GettingStartedPage;

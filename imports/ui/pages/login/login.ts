@@ -1,7 +1,7 @@
 import {Page, NavController} from 'ionic-angular';
 import {MeteorComponent} from 'angular2-meteor'
 // import {GettingStartedPage} from '../getting-started/getting-started'
-import {Schedule} from '../schedule/schedule'
+import {SchedulePage} from '../schedule/schedule'
 
 @Page({
   templateUrl: 'imports/ui/pages/login/login.html',
@@ -23,13 +23,8 @@ export class LoginPage extends MeteorComponent{
         console.log('Login error')
       }else{
         console.log('login success')
-        // console.log(this)
-        this.nav.push(Schedule)
+        this.nav.push(SchedulePage)
       }
     })
-    // this.nav.push(GettingStartedPage)
   }
-  // login(){
-  //   this.nav.push(GettingStartedPage)
-  // }
 }

@@ -33,11 +33,9 @@ var LoginPage = (function (_super) {
             }
             else {
                 console.log('login success');
-                // console.log(this)
-                _this.nav.push(schedule_1.Schedule);
+                _this.nav.push(schedule_1.SchedulePage);
             }
         });
-        // this.nav.push(GettingStartedPage)
     };
     LoginPage = __decorate([
         ionic_angular_1.Page({
