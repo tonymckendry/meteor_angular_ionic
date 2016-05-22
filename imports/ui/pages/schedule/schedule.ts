@@ -1,12 +1,17 @@
-import {Page} from 'ionic-angular';
+import {Page, NavController} from 'ionic-angular';
+import {MeteorComponent} from 'angular2-meteor'
+
+import {LoginPage} from '../login/login'
 
 @Page({
   templateUrl: 'imports/ui/pages/schedule/schedule.html',
   styleUrls: [require('./schedule.scss')]
   // template: '<ion-content><h1>hello</h1></ion-content>'
 })
-export class SchedulePage {
-  constructor() {
+export class SchedulePage extends MeteorComponent {
+  constructor(nav:NavController) {
+    super()
+    this.nav = nav;
     console.log('this is logging on the schedule component')
     this.searchQuery = '';
     this.initializeItems();
@@ -21,6 +26,7 @@ export class SchedulePage {
        'need to put in faker.js',
        'next is infinite scroll'
      ];
+
    }
 
  getItems(searchbar) {
@@ -35,5 +41,9 @@ export class SchedulePage {
      }
      return false;
    })
+  }
+
+  logout(){
+    Meteor.logout((_response) => this.nav.setRoot(LoginPage))
   }
 }

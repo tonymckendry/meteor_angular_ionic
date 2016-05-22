@@ -3,7 +3,7 @@
     <ion-icon name='logo-apple'></ion-icon>
   </button>
   <ion-buttons end>
-    <button light>
+    <button light (click)='logout()'>
       Logout
     </button>
   </ion-buttons>
@@ -14,12 +14,6 @@
 <ion-content padding class="schedule">
 
   <h3>Schedule</h3>
-  <p>
-     You are on the schedule page
-  </p>
-  <p>
-    <button primary menuToggle>Toggle Menu</button>
-  </p>
   <ion-searchbar [(ngModel)]="searchQuery" (input)="getItems($event)"></ion-searchbar>
 <ion-list>
   <ion-item *ngFor="#item of items">

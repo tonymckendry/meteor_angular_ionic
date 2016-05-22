@@ -1,4 +1,9 @@
 "use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9,8 +14,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var ionic_angular_1 = require('ionic-angular');
-var SchedulePage = (function () {
-    function SchedulePage() {
+var angular2_meteor_1 = require('angular2-meteor');
+var login_1 = require('../login/login');
+var SchedulePage = (function (_super) {
+    __extends(SchedulePage, _super);
+    function SchedulePage(nav) {
+        _super.call(this);
+        this.nav = nav;
         console.log('this is logging on the schedule component');
         this.searchQuery = '';
         this.initializeItems();
@@ -38,14 +48,18 @@ var SchedulePage = (function () {
             return false;
         });
     };
+    SchedulePage.prototype.logout = function () {
+        var _this = this;
+        Meteor.logout(function (_response) { return _this.nav.setRoot(login_1.LoginPage); });
+    };
     SchedulePage = __decorate([
         ionic_angular_1.Page({
             templateUrl: 'imports/ui/pages/schedule/schedule.html',
             styleUrls: [require('./schedule.scss')]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [ionic_angular_1.NavController])
     ], SchedulePage);
     return SchedulePage;
-}());
+}(angular2_meteor_1.MeteorComponent));
 exports.SchedulePage = SchedulePage;
 //# sourceMappingURL=schedule.js.map
