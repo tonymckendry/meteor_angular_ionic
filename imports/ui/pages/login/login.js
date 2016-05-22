@@ -15,7 +15,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var ionic_angular_1 = require('ionic-angular');
 var angular2_meteor_1 = require('angular2-meteor');
-var getting_started_1 = require('../getting-started/getting-started');
+// import {GettingStartedPage} from '../getting-started/getting-started'
+var schedule_1 = require('../schedule/schedule');
 var LoginPage = (function (_super) {
     __extends(LoginPage, _super);
     function LoginPage(nav) {
@@ -33,7 +34,7 @@ var LoginPage = (function (_super) {
             else {
                 console.log('login success');
                 // console.log(this)
-                _this.nav.push(getting_started_1.GettingStartedPage);
+                _this.nav.push(schedule_1.Schedule);
             }
         });
         // this.nav.push(GettingStartedPage)
