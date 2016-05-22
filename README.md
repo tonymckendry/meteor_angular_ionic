@@ -9,7 +9,7 @@ Errors prevented startup:
    fonts/ionicons
 ```
 
-**In the file `node_modules/ionic-angular/fonts/ionicons.scss` change the @import statements on  lines 8 & 9 to the following:**
+**In the file `node_modules/ionic-angular/fonts/ionicons.scss` change the '@import' statements on  lines 8 & 9 to the following:**
 
 ```
 @import "../../ionicons/dist/scss/ionicons-icons";
