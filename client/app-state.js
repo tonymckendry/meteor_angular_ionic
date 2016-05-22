@@ -4,6 +4,7 @@ import {observable, autorun} from 'mobx';
 
 export default AppState = observable({
   loggedIn: false,
+  loginError: false,
   username: "",
   morethings: {
     foo: ""

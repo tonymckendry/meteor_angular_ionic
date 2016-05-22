@@ -2,6 +2,9 @@
     <div class='logoDiv'>
       <img src="img/zuuslogo.svg" alt="">
     </div>
+    <div *ngIf="store.loginError">
+      <ion-label danger>Oh no</ion-label>
+    </div>
     <form #f='ngForm' (ngSubmit)='login(f.form)'>
       <ion-list>
         <ion-item>
