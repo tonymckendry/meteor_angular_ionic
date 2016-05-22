@@ -8,6 +8,32 @@ import {Page} from 'ionic-angular';
 export class SchedulePage {
   constructor() {
     console.log('this is logging on the schedule component')
+    this.searchQuery = '';
+    this.initializeItems();
+  }
 
+   initializeItems() {
+     this.items = [
+       'Amsterdam',
+       'Bogota',
+       'Dude',
+       'this is fake data',
+       'need to put in faker.js',
+       'next is infinite scroll'
+     ];
+   }
+
+ getItems(searchbar) {
+   this.initializeItems();
+   var q = searchbar.value;
+   if (q.trim() == '') {
+     return;
+   }
+   this.items = this.items.filter((v) => {
+     if (v.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+       return true;
+     }
+     return false;
+   })
   }
 }
