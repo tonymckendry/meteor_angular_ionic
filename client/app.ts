@@ -1,7 +1,7 @@
 /// <reference path="app.d.ts" />
 
 import {App, Events, Platform, MenuController, Nav} from 'ionic-angular';
-import {ViewChild} from '@angular/core'; 
+import {ViewChild} from '@angular/core';
 import {autorun} from 'mobx';
 import {GettingStartedPage} from '../imports/ui/pages/getting-started/getting-started';
 import {LoginPage} from '../imports/ui/pages/login/login';
@@ -26,7 +26,6 @@ class TheApp implements AfterViewInit {
   }
 
   constructor(events, platform, menu) {
-    super();
     this.events = events;
     this.menu = menu;
 
@@ -62,10 +61,10 @@ class TheApp implements AfterViewInit {
     autorun(() => {
       console.log("autorunning in 'TheApp'");
       if (this.store.loggedIn === true) {
-        this.nav.setRoot(GettingStartedPage);
+        this.nav.setRoot(SchedulePage);
         console.log(this);
       } else {
-        this.nav.setRoot(ListPage);
+        this.nav.setRoot(LoginPage);
         console.log("setting to the listpage")
       }
     })

@@ -1,9 +1,5 @@
+/// <reference path="app.d.ts" />
 "use strict";
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -14,19 +10,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var ionic_angular_1 = require('ionic-angular');
-var angular2_meteor_1 = require('angular2-meteor');
 var core_1 = require('@angular/core');
+var mobx_1 = require('mobx');
 var getting_started_1 = require('../imports/ui/pages/getting-started/getting-started');
 var login_1 = require('../imports/ui/pages/login/login');
 var schedule_1 = require('../imports/ui/pages/schedule/schedule');
-var TheApp = (function (_super) {
-    __extends(TheApp, _super);
+var app_state_1 = require('./app-state');
+var TheApp = (function () {
     function TheApp(events, platform, menu) {
-        _super.call(this);
+        var _this = this;
+        this.store = app_state_1.default;
         this.events = events;
         this.menu = menu;
         platform.ready().then(function () {
             console.log("yeah boy!");
+            console.log(_this.store.loggedIn);
+            // this.store.loggedIn = true;
+            // console.log(this.store.loggedIn);
         });
         // this.app = app;
         // this.platform = platform;
@@ -37,10 +37,9 @@ var TheApp = (function (_super) {
             { title: 'Schedule', component: schedule_1.SchedulePage }
         ];
         //
-        // this.rootPage = GettingStartedPage;
+        this.root = login_1.LoginPage;
         // this.menu.enable(true, "loggedInMenu");
         // this.nav.setRoot(GettingStartedPage);
-        this.root = login_1.LoginPage;
     }
     Object.defineProperty(TheApp, "parameters", {
         get: function () {
@@ -51,6 +50,21 @@ var TheApp = (function (_super) {
         enumerable: true,
         configurable: true
     });
+    TheApp.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        console.log("The component view has been initialised");
+        mobx_1.autorun(function () {
+            console.log("autorunning in 'TheApp'");
+            if (_this.store.loggedIn === true) {
+                _this.nav.setRoot(schedule_1.SchedulePage);
+                console.log(_this);
+            }
+            else {
+                _this.nav.setRoot(login_1.LoginPage);
+                console.log("setting to the listpage");
+            }
+        });
+    };
     TheApp.prototype.openPage = function (page) {
         // Reset the content nav to have just this page
         // // we wouldn't want the back button to show in this scenario
@@ -69,5 +83,5 @@ var TheApp = (function (_super) {
         __metadata('design:paramtypes', [Object, Object, Object])
     ], TheApp);
     return TheApp;
-}(angular2_meteor_1.MeteorComponent));
+}());
 //# sourceMappingURL=app.js.map
