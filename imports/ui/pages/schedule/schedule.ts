@@ -25,15 +25,39 @@ export class SchedulePage extends MeteorComponent {
   }
 
    initializeItems() {
-     this.items = [
-       'Amsterdam',
-       'Bogota',
-       'Dude',
-       'this is fake data',
-       'need to put in faker.js',
-       'next is infinite scroll'
-     ];
+     console.log("this is the faker data")
+     console.log(faker)
+     let numberOfUnits = 100;
+     // Make some fake units.
+                console.log("Creating units...");
+                let units = []
+                for (let i = 0; i < numberOfUnits; i++) {
+                    let u = {
+                        name: faker.address.city(),
+                        id: faker.random.number(),
+                        // timezone: randomElement(tz),
+                        lnglat: [Number(faker.address.longitude()), Number(faker.address.latitude())],
+                    }
+                    units.push(u)
+                }
 
+                this.units = units
+                console.log("these are the units that are created:")
+                console.log(units)
+
+   }
+
+   doInfinite(infiniteScroll) {
+     console.log('Begin async operation');
+
+     setTimeout(() => {
+       for (var i = 0; i < 20; i++) {
+         this.units.push( this.units.length );
+       }
+
+       console.log('Async operation has ended');
+       infiniteScroll.complete();
+     }, 500);
    }
 
  getItems(searchbar) {
@@ -49,13 +73,12 @@ export class SchedulePage extends MeteorComponent {
      return this.items;
    }
 
-   this.items = this.items.filter((v) => {
+   this.units = this.units.filter((v) => {
      if (v.toLowerCase().indexOf(q.toLowerCase()) > -1) {
        return true;
      }
      return false;
    })
   }
-
 
 }

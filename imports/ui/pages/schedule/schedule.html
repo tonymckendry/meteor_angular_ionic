@@ -17,8 +17,12 @@
   <h3>Schedule</h3>
   <ion-searchbar [(ngModel)]="searchQuery" (input)="getItems($event)"></ion-searchbar>
 <ion-list>
-  <ion-item *ngFor="let item of items">
-    {{ item }}
-  </ion-item>
+    <ion-item *ngFor="let unit of units">
+      {{ unit.name }}
+      {{ unit.id }}
+    </ion-item>
 </ion-list>
+<ion-infinite-scroll (infinite)="doInfinite($event)">
+  <ion-infinite-scroll-content></ion-infinite-scroll-content>
+</ion-infinite-scroll>
 </ion-content>
