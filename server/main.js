@@ -6,5 +6,5 @@ import '/imports/startup/server'
   Users SchedShifts add_shift add_application_config add_unit winston Locks*/
 
 Meteor.startup(() => {
-  console.log('THIS IS THE FILE!')
+
 });

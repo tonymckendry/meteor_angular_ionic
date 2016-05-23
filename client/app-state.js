@@ -6,10 +6,11 @@ export default AppState = observable({
   loggedIn: false,
   loginError: false,
   username: "",
-  pageTitle: "Schedule",
+  pageTitle: "",
   morethings: {
     foo: ""
-  }
+  },
+  isManager: false
 });
 
 autorun(() => {
