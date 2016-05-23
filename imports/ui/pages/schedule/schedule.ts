@@ -50,12 +50,5 @@ export class SchedulePage extends MeteorComponent {
    })
   }
 
-  logout(){
-    Meteor.logout((_response) => {
-      // this.nav.setRoot(LoginPage))
-      this.store.loggedIn = false;
-      console.log(_response);
-    });
 
-  }
 }
