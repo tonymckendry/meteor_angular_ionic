@@ -15,10 +15,12 @@
 <ion-content padding class="schedule">
 
   <h3>Schedule</h3>
-  <ion-searchbar [(ngModel)]="searchQuery" (input)="getItems($event)"></ion-searchbar>
+  <!-- <ion-searchbar [(ngModel)]="searchQuery" (input)="getItems($event)"></ion-searchbar>
 <ion-list>
   <ion-item *ngFor="let item of items">
     {{ item }}
   </ion-item>
-</ion-list>
+</ion-list> -->
+<manager *ngIf='store.isManager'></manager>
+<staff *ngIf='store.isManager == false'></staff>
 </ion-content>

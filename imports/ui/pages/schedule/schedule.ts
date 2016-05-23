@@ -6,11 +6,13 @@ import AppState from '../../../../client/app-state';
 import {LoginPage} from '../login/login'
 
 import {NavbarComponent} from '../../layouts/navbar/navbar'
+import {ManagerComponent} from "./manager/manager";
+import {StaffComponent} from "./staff/staff";
 
 @Page({
   templateUrl: 'imports/ui/pages/schedule/schedule.html',
   styleUrls: [require('./schedule.scss')],
-  directives: [NavbarComponent]
+  directives: [NavbarComponent, ManagerComponent, StaffComponent]
   // template: '<ion-content><h1>hello</h1></ion-content>'
 })
 export class SchedulePage extends MeteorComponent {
@@ -18,6 +20,7 @@ export class SchedulePage extends MeteorComponent {
 
   constructor(nav:NavController) {
     super()
+    this.store.pageTitle = 'Schedule';
     this.nav = nav;
     console.log('this is logging on the schedule component')
     this.searchQuery = '';
