@@ -8,5 +8,14 @@ import AppState from '../../../../client/app-state';
 })
 
 export class NavbarComponent{
-  store = AppState; 
+  store = AppState;
+  
+  logout(){
+    Meteor.logout((_response) => {
+      // this.nav.setRoot(LoginPage))
+      this.store.loggedIn = false;
+      console.log(_response);
+    });
+
+  }
 }
