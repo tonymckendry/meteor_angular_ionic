@@ -43,6 +43,13 @@ export class SchedulePage extends MeteorComponent {
    if (q.trim() == '') {
      return;
    }
+
+   console.log(q);
+   if (q === "") {
+     console.log("short circuit if there is nothing to filter by");
+     return this.items;
+   }
+
    this.items = this.items.filter((v) => {
      if (v.toLowerCase().indexOf(q.toLowerCase()) > -1) {
        return true;
@@ -51,12 +58,5 @@ export class SchedulePage extends MeteorComponent {
    })
   }
 
-  logout(){
-    Meteor.logout((_response) => {
-      // this.nav.setRoot(LoginPage))
-      this.store.loggedIn = false;
-      console.log(_response);
-    });
 
-  }
 }
