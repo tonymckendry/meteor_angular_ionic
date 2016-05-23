@@ -66,6 +66,13 @@ export class SchedulePage extends MeteorComponent {
    if (q.trim() == '') {
      return;
    }
+
+   console.log(q);
+   if (q === "") {
+     console.log("short circuit if there is nothing to filter by");
+     return this.items;
+   }
+
    this.units = this.units.filter((v) => {
      if (v.toLowerCase().indexOf(q.toLowerCase()) > -1) {
        return true;
@@ -73,4 +80,5 @@ export class SchedulePage extends MeteorComponent {
      return false;
    })
   }
+
 }

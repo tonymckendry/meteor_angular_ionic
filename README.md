@@ -15,3 +15,7 @@ In the file `node_modules/ionic-angular/fonts/ionicons.scss` change the "@ impor
 @import "../../ionicons/dist/scss/ionicons-icons";
 @import "../../ionicons/dist/scss/ionicons-variables";
 ```
+
+*To start*
+
+meteor --settings server/settings.json

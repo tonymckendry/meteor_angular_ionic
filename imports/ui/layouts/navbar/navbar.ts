@@ -8,7 +8,6 @@ import AppState from '../../../../client/app-state';
 })
 
 export class NavbarComponent{
-  store = AppState;
   
   logout(){
     Meteor.logout((_response) => {

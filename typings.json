@@ -5,6 +5,7 @@
     "node": "registry:dt/node#4.0.0+20160509154515"
   },
   "dependencies": {
-    "es6-promise": "registry:npm/es6-promise#3.0.0+20160211003958"
+    "es6-promise": "registry:npm/es6-promise#3.0.0+20160211003958",
+    "moment": "registry:npm/moment#2.10.5+20160211003958"
   }
 }
