@@ -31,7 +31,8 @@ export class SchedulePage extends MeteorComponent {
        'Dude',
        'this is fake data',
        'need to put in faker.js',
-       'next is infinite scroll'
+       'next is infinite scroll',
+       'one more'
      ];
 
    }
