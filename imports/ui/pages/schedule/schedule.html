@@ -17,7 +17,7 @@
   <h3>Schedule</h3>
   <ion-searchbar [(ngModel)]="searchQuery" (input)="getItems($event)"></ion-searchbar>
 <ion-list>
-    <ion-item *ngFor="#unit of units">
+    <ion-item *ngFor="let unit of units">
       {{ unit.name }}
       {{ unit.id }}
     </ion-item>
