@@ -25,6 +25,8 @@ export class SchedulePage extends MeteorComponent {
     console.log('this is logging on the schedule component')
     this.searchQuery = '';
     this.initializeItems();
+    this.subscribe('scheduled-shifts')
+    console.log(this.subscribe('scheduled_shifts'))
   }
 
    initializeItems() {

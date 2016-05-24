@@ -1,57 +1,7 @@
 {
     "public":{
     },
-    "galaxy.meteor.com":{
-        "env": {
-            "ROOT_URL": "https://mobile.zuusworkforce.com",
-            "MONGO_URL": "mongodb://lordJohn:8x8Egym8Fz@ds011170-a0.mlab.com:11170,ds011170-a1.mlab.com:11170/mobile?replicaSet=rs-ds011170",
-            "MONGO_OPLOG_URL": "mongodb://oplog-reader:gLsK67C9j@ds011170-a0.mlab.com:11170,ds011170-a1.mlab.com:11170/local?replicaSet=rs-ds011170&authSource=admin"
-        }
-    },
-    "kadira": {
-        "appId": "sEK95bBa5MhfpjHYu",
-        "appSecret": "bc0a4f00-bb7c-4d95-91fc-98b641fc928f"
-    },
     "zuus":{
-        "debug": true,
-        "django":{
-            "url": "http://127.0.0.1:8002/mobile/",
-            "api_key":"xKPn6HorBuMdWEgAtnsFqA7vg",
-            "user":"handset_server",
-            "password":"verylargehamper",
-            "token":"token/",
-            "staff":"staff/",
-            "unit":"unit/",
-            "jobs":"jobs/",
-            "login":"auth/",
-            "userdetails":"user/",
-            "fillshift":"swap/",
-            "shiftswapped":"shift_swapped/",
-            "tanda":"tanda/",
-            "refresh":"refresh/"
-        },
-        "aws":{
-            "region":"ap-southeast-2",
-            "accountId":"307497582745",
-            "keyId":"AKIAIGOEVPMFSCWI7ENQ",
-            "accessKey":"D5p1RgGlqrMNPl96YMVm0sbfBAESmIxqYvfL5cqu",
-            "queue":{
-                "name":"mobile",
-                "retry":false
-            },
-            "resequence":{
-                "wait": 600
-            },
-            "development":{
-                "region":"ap-southeast-2",
-                "accountId":"307497582745",
-                "keyId":"AKIAIGOEVPMFSCWI7ENQ",
-                "accessKey":"D5p1RgGlqrMNPl96YMVm0sbfBAESmIxqYvfL5cqu",
-                "queue":{
-                    "name":"mobile-development",
-                    "retry":false
-                }
-            }
-        }
+        "debug": true
     }
 }

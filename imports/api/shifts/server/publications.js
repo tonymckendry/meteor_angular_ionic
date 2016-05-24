@@ -1,24 +1,25 @@
 /*global moment Time*/
 
 Meteor.publish("scheduled_shifts", function() {
-    let self = this
-    self.autorun(function(computation) {
-        // Must be logged in.
-        if (!this.userId) {
-            self.ready()
-            return
-        }
-
-        let user = Meteor.users.findOne({
-            _id: this.userId,
-        })
-        let storedTime = Time.findOne({
-            name: App.Utils.platform_time,
-        })
-        let yesterday = moment(storedTime).subtract(moment.duration(12, 'hours'))
-        let limit = self.data("limit") || 15
-        return App.Utils.Shifts.find(user, yesterday.toDate(), limit)
-    })
+    return SchedShifts.find({})
+    // let self = this
+    // self.autorun(function(computation) {
+    //     // Must be logged in.
+    //     // if (!this.userId) {
+    //         self.ready()
+    //         return
+    //     // }
+    //
+    //     let user = Meteor.users.findOne({
+    //         _id: this.userId,
+    //     })
+    //     let storedTime = Time.findOne({
+    //         name: App.Utils.platform_time,
+    //     })
+    //     let yesterday = moment(storedTime).subtract(moment.duration(12, 'hours'))
+    //     let limit = self.data("limit") || 15
+    //     return App.Utils.Shifts.find(user, yesterday.toDate(), limit)
+    // })
 })
 
 Meteor.publish("unit_shifts", function() {
